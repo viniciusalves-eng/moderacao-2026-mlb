@@ -507,8 +507,6 @@
 <!-- ══ TABS NAV ══════════════════════════════════════════════════ -->
 <nav class="tabs-nav" id="tabs-nav">
   <button class="tab-btn active" data-tab="overview">Visão Geral</button>
-  <button class="tab-btn"        data-tab="nodos">Por Nodo</button>
-  <button class="tab-btn"        data-tab="envios">Envios</button>
   <button class="tab-btn"        data-tab="transportadoras">Transportadoras</button>
   <button class="tab-btn"        data-tab="perfect-delivery">Perfect Delivery</button>
   <button class="tab-btn"        data-tab="detalhes">Detalhes</button>
@@ -649,33 +647,7 @@
         <canvas id="chart-reasons"></canvas>
       </div>
     </div>
-  </div>
 
-  <!-- ── TAB: POR NODO ─────────────────────────────────────────── -->
-  <div class="tab-panel" id="tab-nodos">
-    <div class="section-title">Evolução temporal &amp; concentração por nodo</div>
-    <div class="chart-grid chart-grid-2">
-      <div class="chart-card">
-        <h3>Evolução Diária — Estados de Moderação</h3>
-        <canvas id="chart-trend" style="max-height:240px"></canvas>
-      </div>
-      <div class="chart-card">
-        <h3>Top 10 Nodos — Sellers Downgraded</h3>
-        <canvas id="chart-nodes" style="max-height:240px"></canvas>
-      </div>
-    </div>
-
-    <div class="section-title">Distribuição por nodo</div>
-    <div class="chart-grid chart-grid-1">
-      <div class="chart-card">
-        <h3>Sellers por Nodo — Stacked (OK / Intervened / Downgraded)</h3>
-        <canvas id="chart-nodo-stack" style="max-height:280px"></canvas>
-      </div>
-    </div>
-  </div>
-
-  <!-- ── TAB: ENVIOS ───────────────────────────────────────────── -->
-  <div class="tab-panel" id="tab-envios">
     <div class="section-title">Métricas de envios incorretos</div>
     <div class="kpi-grid" style="grid-template-columns:repeat(auto-fill,minmax(160px,1fr))">
       <div class="kpi-card c-blue">
@@ -1269,9 +1241,6 @@ class Dashboard {
       () => this.renderChartStatus(),
       () => this.renderChartSeg(),
       () => this.renderChartReasons(),
-      () => this.renderChartTrend(),
-      () => this.renderChartNodes(),
-      () => this.renderChartNodoStack(),
       () => this.renderChartEnvTrend(),
       () => this.renderChartEnvBreakdown(),
       () => this.renderCarrierKPIs(),
@@ -1380,87 +1349,6 @@ class Dashboard {
       ['Delay Seller','Buyer Absent','Repro Buyer'],
       [sh.reduce((a,x)=>a+x.delay,0), sh.reduce((a,x)=>a+x.absent,0), sh.reduce((a,x)=>a+x.repro,0)],
       [C.delay, C.absent, C.repro], true);
-  }
-
-  /* ── Chart: line trend status ────────────────────────────── */
-  renderChartTrend() {
-    const sh = this.filtShips;
-    const lbs = sh.map(x=>x.date.slice(5));
-    const okD  = sh.map(x=>Math.round((x.total-x.incorretos)*0.55));
-    const itD  = sh.map(x=>Math.round(x.incorretos*0.6));
-    const dgD  = sh.map(x=>Math.round(x.incorretos*0.4));
-    if (this.charts.trend) this.charts.trend.destroy();
-    this.charts.trend = new Chart(
-      document.getElementById('chart-trend').getContext('2d'), {
-        type:'line', data:{ labels:lbs, datasets:[
-          {label:'OK',         data:okD, borderColor:C.ok,  backgroundColor:C.ok+'20',  fill:true, tension:0.35,borderWidth:2,pointRadius:2},
-          {label:'Intervened', data:itD, borderColor:C.int, backgroundColor:C.int+'20', fill:true, tension:0.35,borderWidth:2,pointRadius:2},
-          {label:'Downgraded', data:dgD, borderColor:C.dg,  backgroundColor:C.dg+'20',  fill:true, tension:0.35,borderWidth:2,pointRadius:2},
-        ]},
-        options:{
-          responsive:true, maintainAspectRatio:false,
-          interaction:{mode:'index',intersect:false},
-          plugins:{ legend:{ position:'top', labels:{ usePointStyle:true, padding:14, font:{size:11,weight:'700'} } } },
-          scales:{
-            x:{ grid:{display:false}, ticks:{font:{size:10},maxRotation:45} },
-            y:{ grid:{color:'#F0F0F0'} }
-          }
-        }
-      });
-  }
-
-  /* ── Chart: horizontal bar — top nodos ──────────────────── */
-  renderChartNodes() {
-    const s = this.filtSellers;
-    const byNode = {};
-    s.filter(x=>x.status==='downgraded').forEach(x=>{byNode[x.nodo]=(byNode[x.nodo]||0)+1;});
-    const sorted = Object.entries(byNode).sort((a,b)=>b[1]-a[1]).slice(0,10);
-    if (this.charts.nodes) this.charts.nodes.destroy();
-    this.charts.nodes = new Chart(
-      document.getElementById('chart-nodes').getContext('2d'), {
-        type:'bar',
-        data:{ labels:sorted.map(x=>x[0]), datasets:[{
-          label:'Sellers Downgraded',
-          data:sorted.map(x=>x[1]),
-          backgroundColor: C.dg+'cc',
-          borderColor: C.dg,
-          borderWidth:1, borderRadius:4
-        }]},
-        options:{
-          responsive:true, maintainAspectRatio:false, indexAxis:'y',
-          plugins:{ legend:{display:false}, tooltip:{callbacks:{label:c=>` ${c.parsed.x} sellers`}} },
-          scales:{
-            x:{ grid:{color:'#F0F0F0'} },
-            y:{ grid:{display:false}, ticks:{font:{size:11,weight:'700'}} }
-          }
-        }
-      });
-  }
-
-  /* ── Chart: stacked bar por nodo ─────────────────────────── */
-  renderChartNodoStack() {
-    const s = this.filtSellers;
-    const okD  = NODES_MLB.map(n=>s.filter(x=>x.nodo===n&&x.status==='ok').length);
-    const itD  = NODES_MLB.map(n=>s.filter(x=>x.nodo===n&&x.status==='intervened').length);
-    const dgD  = NODES_MLB.map(n=>s.filter(x=>x.nodo===n&&x.status==='downgraded').length);
-    if (this.charts.nodoStack) this.charts.nodoStack.destroy();
-    this.charts.nodoStack = new Chart(
-      document.getElementById('chart-nodo-stack').getContext('2d'), {
-        type:'bar',
-        data:{ labels:NODES_MLB, datasets:[
-          {label:'OK',         data:okD, backgroundColor:C.ok+'cc',  stack:'s'},
-          {label:'Intervened', data:itD, backgroundColor:C.int+'cc', stack:'s'},
-          {label:'Downgraded', data:dgD, backgroundColor:C.dg+'cc',  stack:'s'},
-        ]},
-        options:{
-          responsive:true, maintainAspectRatio:false,
-          plugins:{ legend:{ position:'top', labels:{usePointStyle:true,padding:14,font:{size:11,weight:'700'}} } },
-          scales:{
-            x:{stacked:true, grid:{display:false}, ticks:{font:{size:10}}},
-            y:{stacked:true, grid:{color:'#F0F0F0'}}
-          }
-        }
-      });
   }
 
   /* ── Chart: env trend ────────────────────────────────────── */
