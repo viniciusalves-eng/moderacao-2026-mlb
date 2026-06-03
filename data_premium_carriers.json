@@ -1,0 +1,254 @@
+{
+  "updated_at": "2026-06-03",
+  "period_loyalty": "Abr-Mai/2026",
+  "period_history": "Jan-Mai/2026",
+  "period_projection": "Jun-Dez/2026",
+  "flex_monthly_total": {
+    "2026-01": 4290230, "2026-02": 4046541, "2026-03": 4434329,
+    "2026-04": 4482116, "2026-05": 4792130, "2026-06": 5143031,
+    "2026-07": 5563094, "2026-08": 5867480, "2026-09": 5910384,
+    "2026-10": 6400753, "2026-11": 7002869, "2026-12": 7996957
+  },
+  "carriers": [
+    {
+      "name": "J3 FLEX",
+      "category": "premium",
+      "color": "#1A3A5C",
+      "trend_direction": "stable",
+      "market_share_trend_pp_month": -0.26,
+      "market_share_may": 18.49,
+      "landing_position_jan_abr": 4,
+      "landing_position_mai": 4,
+      "platform_conversion_pct": 2.33,
+      "platform_avg_contact_min": 80,
+      "platform_unique_sellers": 2178,
+      "monthly_volume": {
+        "2026-01": 814227, "2026-02": 795521, "2026-03": 843075,
+        "2026-04": 693722, "2026-05": 886302
+      },
+      "monthly_sla": {
+        "2026-01": 95.4, "2026-02": 96.7, "2026-03": 96.5,
+        "2026-04": 96.8, "2026-05": 97.2
+      },
+      "monthly_early_pct": {
+        "2026-01": 6.9, "2026-02": 4.5, "2026-03": 3.8,
+        "2026-04": 3.7, "2026-05": 3.4
+      },
+      "monthly_pos21h_pct": {
+        "2026-01": 11.6, "2026-02": 9.6, "2026-03": 9.8,
+        "2026-04": 6.1, "2026-05": 7.0
+      },
+      "vs_projection_pct": {
+        "2026-01": 10.6, "2026-02": 23.5, "2026-03": 10.3,
+        "2026-04": -15.1, "2026-05": 7.8
+      },
+      "projection_trend": {
+        "2026-06": 881729, "2026-07": 939350, "2026-08": 975564,
+        "2026-09": 967404, "2026-10": 1031105, "2026-11": 1109981,
+        "2026-12": 1246855
+      },
+      "projection_avg": {
+        "2026-06": 908344, "2026-07": 982534, "2026-08": 1036294,
+        "2026-09": 1043872, "2026-10": 1130479, "2026-11": 1236823,
+        "2026-12": 1412395
+      },
+      "seller_loyalty": {
+        "total_sellers": 10825,
+        "exclusive": 1925,
+        "exclusive_pct": 17.8,
+        "multi_carrier": 8900,
+        "multi_carrier_pct": 82.2,
+        "shps_own": 1471867,
+        "shps_other_carrier": 210721,
+        "shps_no_carrier": 143153
+      },
+      "contacts_by_channel": {
+        "2026-01": {"whatsapp": 89, "web": 67, "instagram": 12},
+        "2026-02": {"whatsapp": 521, "web": 279, "instagram": 35},
+        "2026-03": {"whatsapp": 392, "web": 229, "instagram": 34},
+        "2026-04": {"whatsapp": 405, "web": 277, "instagram": 50},
+        "2026-05": {"whatsapp": 531, "web": 367, "instagram": 63}
+      }
+    },
+    {
+      "name": "TM LOGISTICA",
+      "category": "premium",
+      "color": "#145A32",
+      "trend_direction": "down",
+      "market_share_trend_pp_month": -1.02,
+      "market_share_may": 8.22,
+      "landing_position_jan_abr": 2,
+      "landing_position_mai": 2,
+      "platform_conversion_pct": 3.09,
+      "platform_avg_contact_min": 101,
+      "platform_unique_sellers": 2883,
+      "monthly_volume": {
+        "2026-01": 426624, "2026-02": 439122, "2026-03": 454633,
+        "2026-04": 398209, "2026-05": 393833
+      },
+      "monthly_sla": {
+        "2026-01": 96.7, "2026-02": 96.1, "2026-03": 97.3,
+        "2026-04": 97.6, "2026-05": 97.7
+      },
+      "monthly_early_pct": {
+        "2026-01": 4.7, "2026-02": 3.9, "2026-03": 3.3,
+        "2026-04": 3.2, "2026-05": 2.7
+      },
+      "monthly_pos21h_pct": {
+        "2026-01": 25.1, "2026-02": 26.9, "2026-03": 19.1,
+        "2026-04": 7.9, "2026-05": 3.8
+      },
+      "vs_projection_pct": {
+        "2026-01": 34.2, "2026-02": 60.7, "2026-03": 19.1,
+        "2026-04": -9.9, "2026-05": -11.7
+      },
+      "projection_trend": {
+        "2026-06": 364342, "2026-07": 342895, "2026-08": 361657,
+        "2026-09": 364301, "2026-10": 394526, "2026-11": 431639,
+        "2026-12": 492912
+      },
+      "projection_avg": {
+        "2026-06": 468964, "2026-07": 507267, "2026-08": 535022,
+        "2026-09": 538934, "2026-10": 583648, "2026-11": 638552,
+        "2026-12": 729197
+      },
+      "seller_loyalty": {
+        "total_sellers": 3427,
+        "exclusive": 724,
+        "exclusive_pct": 21.1,
+        "multi_carrier": 2703,
+        "multi_carrier_pct": 78.9,
+        "shps_own": 729155,
+        "shps_other_carrier": 104788,
+        "shps_no_carrier": 79694
+      },
+      "contacts_by_channel": {
+        "2026-01": {"whatsapp": 657, "web": 366, "instagram": 54},
+        "2026-02": {"whatsapp": 460, "web": 262, "instagram": 29},
+        "2026-03": {"whatsapp": 460, "web": 252, "instagram": 33},
+        "2026-04": {"whatsapp": 373, "web": 265, "instagram": 34},
+        "2026-05": {"whatsapp": 354, "web": 224, "instagram": 27}
+      }
+    },
+    {
+      "name": "FLEX BOYS",
+      "category": "premium",
+      "color": "#7D3C98",
+      "trend_direction": "down",
+      "market_share_trend_pp_month": -0.88,
+      "market_share_may": 5.46,
+      "landing_position_jan_abr": 3,
+      "landing_position_mai": 1,
+      "platform_conversion_pct": 3.86,
+      "platform_avg_contact_min": 65,
+      "platform_unique_sellers": 3610,
+      "monthly_volume": {
+        "2026-01": 257361, "2026-02": 280476, "2026-03": 320076,
+        "2026-04": 265871, "2026-05": 261514
+      },
+      "monthly_sla": {
+        "2026-01": 96.0, "2026-02": 97.1, "2026-03": 97.0,
+        "2026-04": 97.5, "2026-05": 98.1
+      },
+      "monthly_early_pct": {
+        "2026-01": 4.6, "2026-02": 2.1, "2026-03": 2.2,
+        "2026-04": 3.2, "2026-05": 1.8
+      },
+      "monthly_pos21h_pct": {
+        "2026-01": 19.0, "2026-02": 18.1, "2026-03": 15.3,
+        "2026-04": 2.6, "2026-05": 2.6
+      },
+      "vs_projection_pct": {
+        "2026-01": 9.8, "2026-02": 17.8, "2026-03": 9.7,
+        "2026-04": -11.7, "2026-05": -14.0
+      },
+      "projection_trend": {
+        "2026-06": 228422, "2026-07": 227690, "2026-08": 240148,
+        "2026-09": 241904, "2026-10": 261974, "2026-11": 286618,
+        "2026-12": 327305
+      },
+      "projection_avg": {
+        "2026-06": 318990, "2026-07": 345044, "2026-08": 363923,
+        "2026-09": 366584, "2026-10": 396998, "2026-11": 434344,
+        "2026-12": 496001
+      },
+      "seller_loyalty": {
+        "total_sellers": 3033,
+        "exclusive": 650,
+        "exclusive_pct": 21.4,
+        "multi_carrier": 2383,
+        "multi_carrier_pct": 78.6,
+        "shps_own": 532221,
+        "shps_other_carrier": 138679,
+        "shps_no_carrier": 30099
+      },
+      "contacts_by_channel": {
+        "2026-01": {"whatsapp": 1227, "web": 904, "instagram": 202},
+        "2026-02": {"whatsapp": 462, "web": 295, "instagram": 49},
+        "2026-03": {"whatsapp": 375, "web": 201, "instagram": 27},
+        "2026-04": {"whatsapp": 296, "web": 188, "instagram": 42},
+        "2026-05": {"whatsapp": 661, "web": 450, "instagram": 88}
+      }
+    },
+    {
+      "name": "VITOM",
+      "category": "premium",
+      "color": "#935116",
+      "trend_direction": "up",
+      "market_share_trend_pp_month": 0.17,
+      "market_share_may": 1.87,
+      "landing_position_jan_abr": 1,
+      "landing_position_mai": 3,
+      "platform_conversion_pct": 4.81,
+      "platform_avg_contact_min": 62,
+      "platform_unique_sellers": 4497,
+      "monthly_volume": {
+        "2026-01": 54735, "2026-02": 61754, "2026-03": 67318,
+        "2026-04": 69545, "2026-05": 89414
+      },
+      "monthly_sla": {
+        "2026-01": 96.8, "2026-02": 97.4, "2026-03": 97.7,
+        "2026-04": 97.9, "2026-05": 98.0
+      },
+      "monthly_early_pct": {
+        "2026-01": 5.0, "2026-02": 3.3, "2026-03": 2.6,
+        "2026-04": 2.6, "2026-05": 3.0
+      },
+      "monthly_pos21h_pct": {
+        "2026-01": 12.6, "2026-02": 16.4, "2026-03": 16.2,
+        "2026-04": 13.7, "2026-05": 11.5
+      },
+      "vs_projection_pct": {
+        "2026-01": 10.7, "2026-02": 19.9, "2026-03": 9.8,
+        "2026-04": 7.0, "2026-05": 39.7
+      },
+      "projection_trend": {
+        "2026-06": 102497, "2026-07": 120541, "2026-08": 137338,
+        "2026-09": 148619, "2026-10": 167200, "2026-11": 182928,
+        "2026-12": 208896
+      },
+      "projection_avg": {
+        "2026-06": 84613, "2026-07": 91524, "2026-08": 96531,
+        "2026-09": 97237, "2026-10": 105305, "2026-11": 115211,
+        "2026-12": 131565
+      },
+      "seller_loyalty": {
+        "total_sellers": 717,
+        "exclusive": 81,
+        "exclusive_pct": 11.3,
+        "multi_carrier": 636,
+        "multi_carrier_pct": 88.7,
+        "shps_own": 163329,
+        "shps_other_carrier": 45237,
+        "shps_no_carrier": 25156
+      },
+      "contacts_by_channel": {
+        "2026-01": {"whatsapp": 867, "web": 513, "instagram": 84},
+        "2026-02": {"whatsapp": 862, "web": 626, "instagram": 111},
+        "2026-03": {"whatsapp": 967, "web": 706, "instagram": 123},
+        "2026-04": {"whatsapp": 964, "web": 742, "instagram": 137},
+        "2026-05": {"whatsapp": 512, "web": 397, "instagram": 60}
+      }
+    }
+  ]
+}
