@@ -2648,8 +2648,6 @@ window.__EMBEDDED_CARRIER_WEEKLY__  = [{"bons":96,"carrier":"3A's express","muit
   function buildUI() {
     buildSummaryKPIs();
     buildCarrierButtons();
-    buildProjectionTable();
-    buildLoyaltyAll();
     renderCarrier(activeCarrier);
     $('premium-updated-at').textContent = 'Dados atualizados em: ' + DATA.updated_at;
   }
@@ -2718,6 +2716,8 @@ window.__EMBEDDED_CARRIER_WEEKLY__  = [{"bons":96,"carrier":"3A's express","muit
     renderPerformance(c);
     renderContacts(c);
     renderLoyalty(c);
+    buildProjectionTable();
+    buildLoyaltyAll();
   }
 
   // ── Volume + SLA ──────────────────────────────────────────────────────────
@@ -2910,7 +2910,9 @@ window.__EMBEDDED_CARRIER_WEEKLY__  = [{"bons":96,"carrier":"3A's express","muit
   // ── Tabela projeção ───────────────────────────────────────────────────────
   function buildProjectionTable() {
     const tbody = $('premium-proj-tbody');
-    DATA.carriers.forEach(c => {
+    tbody.innerHTML = '';
+    const carriers = activeCarrier ? DATA.carriers.filter(c => c.name === activeCarrier) : DATA.carriers;
+    carriers.forEach(c => {
       const trend = c.market_share_trend_pp_month || 0;
       const trendIcon = trend > 0.01 ? '📈' : trend < -0.01 ? '📉' : '➡️';
       const trendCls  = trend > 0.01 ? 'c-green' : trend < -0.01 ? 'c-red' : 'c-blue';
@@ -2952,7 +2954,9 @@ window.__EMBEDDED_CARRIER_WEEKLY__  = [{"bons":96,"carrier":"3A's express","muit
   // ── Comparativo lealdade todas ────────────────────────────────────────────
   function buildLoyaltyAll() {
     const cont = $('premium-loyalty-all');
-    DATA.carriers.forEach(c => {
+    cont.innerHTML = '';
+    const carriers = activeCarrier ? DATA.carriers.filter(c => c.name === activeCarrier) : DATA.carriers;
+    carriers.forEach(c => {
       const ly  = c.seller_loyalty || {};
       const col = COLORS[c.name];
       const excPct = ly.exclusive_pct || 0;
